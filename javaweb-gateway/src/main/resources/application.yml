@@ -1,0 +1,15 @@
+server:
+  port: 9100
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: javaweb-gateway
+  main:
+    allow-bean-definition-overriding: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9001/eureka/

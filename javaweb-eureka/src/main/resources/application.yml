@@ -1,0 +1,26 @@
+server:
+  port: 9001 # 服务端口
+
+spring:
+  application:
+    name: eurka-server  # 服务名称
+  security:
+    user:
+      name: root #定义账户
+      password: root #定义密码
+
+eureka:
+  instance:
+    hostname: localhost # 设置主机名
+  client:
+    registerWithEureka: false # 是否向 Eureka 注册服务。该应用为服务注册中心，不需要自注册，设置为 false
+    fetchRegistry: false # 是否检索服务。该应用为服务注册中心，职责为注册和发现服务，无需检索服务，设置为 false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ # 注册中心url
+  server:  #配置属性，但由于 Eureka 自我保护模式以及心跳周期长的原因，经常会遇到 Eureka Server 不剔除已关停的节点的问题
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 5000
+
+logging:
+  level:
+    root: info

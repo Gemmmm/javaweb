@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javaweb.service.system.mapper.MenuMapper">
+
+    <!-- 获取用户权限列表 -->
+    <select id="getPermissionsListByUserId" resultType="com.javaweb.service.system.entity.Menu">
+        SELECT DISTINCT m.* FROM sys_menu AS m
+        INNER JOIN sys_role_menu AS rm ON m.id=rm.menu_id
+        INNER JOIN sys_user_role AS ur ON ur.role_id=rm.role_id
+        WHERE ur.user_id=#{userId} AND m.`status`=1 AND m.mark=1
+        ORDER BY m.sort ASC;
+    </select>
+
+    <!-- 获取所有菜单权限 -->
+    <select id="getPermissionsAll" resultType="com.javaweb.service.system.entity.Menu">
+        SELECT * FROM sys_menu WHERE mark=1 ORDER BY pid ASC,sort ASC;
+    </select>
+
+    <!-- 根据角色ID获取菜单权限 -->
+    <select id="getMenuListByRoleId" resultType="com.javaweb.service.system.entity.Menu">
+        SELECT m.* FROM sys_menu AS m
+        INNER JOIN sys_role_menu AS rm ON rm.menu_id=m.id
+        WHERE rm.role_id=#{roleId} AND m.`status`=1 AND m.mark=1
+        ORDER BY m.pid ASC, m.sort ASC;
+    </select>
+
+</mapper>

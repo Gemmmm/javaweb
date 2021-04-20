@@ -1,0 +1,18 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: javaweb-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/javaweb520/cloud-config
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9001/eureka/
+
+

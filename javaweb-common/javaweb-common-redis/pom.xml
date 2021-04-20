@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>javaweb-common</artifactId>
+        <groupId>com.javaweb</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>javaweb-common-redis</artifactId>
+
+    <!-- 依赖管理 -->
+    <dependencies>
+
+        <!-- 系统核心依赖 -->
+        <dependency>
+            <groupId>com.javaweb</groupId>
+            <artifactId>javaweb-common-framework</artifactId>
+        </dependency>
+
+        <!-- SpringBoot Boot Redis 缓存依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>
